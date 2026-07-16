@@ -1,0 +1,71 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--bg-base) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+
+.logo-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent-signal);
+  border-radius: 50%;
+}
+
+.logo-dot {
+  position: absolute;
+  inset: 10px;
+  background: var(--accent-signal);
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.logo-accent {
+  color: var(--accent-signal);
+}
+
+.header-nav {
+  display: flex;
+  gap: 28px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.header-nav a:hover {
+  color: var(--accent-data);
+}
+
+@media (max-width: 480px) {
+  .logo-text { font-size: 0.9rem; }
+  .header-nav { gap: 16px; font-size: 0.78rem; }
+  .header-inner { height: 60px; }
+}

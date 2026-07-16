@@ -1,0 +1,32 @@
+:root {
+  /* surfaces */
+  --bg-base: #0f1117;
+  --bg-panel: #171a24;
+  --bg-panel-raised: #1e2230;
+  --border-subtle: #262b3a;
+  --border-strong: #343b52;
+
+  /* text */
+  --text-primary: #edeef2;
+  --text-muted: #9095a8;
+  --text-faint: #5b6178;
+
+  /* accents */
+  --accent-signal: #ffb13d;      /* radar lock / signal amber */
+  --accent-signal-dim: #7a5a28;
+  --accent-data: #5ee4d4;        /* audience-data teal */
+  --accent-data-dim: #2a5850;
+
+  /* type */
+  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* layout */
+  --container-max: 1180px;
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+
+  color-scheme: dark;
+}
