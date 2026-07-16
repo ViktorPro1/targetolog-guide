@@ -1,32 +1,63 @@
-# React + TypeScript + Vite
+# Таргет від А до Я
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Довідник про таргетовану рекламу для української аудиторії. Пояснює основні
+поняття простою мовою: що таке таргет, як формується аудиторія, де
+запускається реклама та скільки це коштує.
 
-Currently, two official plugins are available:
+Сайт наповнюється поступово — розділи додаються один за одним.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Стек
 
-## React Compiler
+- React 19 + TypeScript
+- Vite
+- React Router
+- Fontsource (Unbounded, Manrope, JetBrains Mono) — шрифти підключені як
+  пакети, без `@import`, щоб не ламати білд
+- Oxlint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Запуск
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # відкриє браузер автоматично
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Інші команди:
+
+```bash
+npm run build     # продакшн-збірка
+npm run preview   # перегляд зібраної версії
+npm run lint      # перевірка коду
+```
+
+## Структура
+
+```
+src/
+  components/   # Header, Footer, TargetReticle (анімований приціл на головній), SectionCard
+  data/          # sections.ts — список розділів довідника
+  pages/         # Home, WhatIsTarget та наступні статті
+  styles/        # variables.css (токени теми), global.css
+```
+
+Тема — темна, з бурштиновим акцентом (`--accent-signal`) та бірюзовим
+(`--accent-data`). Токени зібрані в `src/styles/variables.css`.
+
+## Як додати новий розділ
+
+1. Додати новий об'єкт у `src/data/sections.ts` з `ready: false`, поки стаття
+   не готова — картка на головній автоматично покаже позначку «незабаром».
+2. Створити файл сторінки в `src/pages/` за прикладом `WhatIsTarget.tsx`.
+3. Додати маршрут у `src/App.tsx`.
+4. Виставити `ready: true` в `sections.ts` — картка стане клікабельною.
+
+## Розділи довідника
+
+- [x] 1.  Що таке таргет
+- [ ] 2.  Сегменти аудиторії
+- [ ] 3.  Рекламні платформи (Meta Ads, TikTok Ads, Google Ads)
+- [ ] 4.  Воронка продажів
+- [ ] 5.  Бюджет і ставки
+
+Список актуальний станом на поточну версію `src/data/sections.ts` — саме
+цей файл є джерелом істини для розділів, що показуються на сайті.
